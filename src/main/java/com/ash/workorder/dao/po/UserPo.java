@@ -11,6 +11,7 @@ public class UserPo {
     private Integer id;
     private String username;
     private String password;
+    private String realname;
     private Boolean activate;
     private Date lastLoginTime;
 
@@ -53,6 +54,15 @@ public class UserPo {
     public void setLastLoginTime(Date lastLoginTime) {
         this.lastLoginTime = lastLoginTime;
     }
+
+    public String getRealname() {
+        return realname;
+    }
+
+    public void setRealname(String realname) {
+        this.realname = realname;
+    }
+
     @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder("UserPo{");

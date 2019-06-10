@@ -9,6 +9,7 @@
         <result column="password" property="password" jdbcType="VARCHAR" />
         <result column="activate" property="activate" jdbcType="BOOLEAN" />
         <result column="last_login_time" property="lastLoginTime" jdbcType="TIMESTAMP" />
+        <result column="realname" property="realname" jdbcType="VARCHAR"/>
     </resultMap>
 
     <sql id="tableName">user_info</sql>
@@ -31,7 +32,7 @@
     </sql>
 
     <select id="selectByUsername" resultMap="baseResultMap">
-        select id,username,password,activate, last_login_time
+        select id, username, password, activate, last_login_time, realname
         from <include refid="tableName"/>
         where username = #{username}
     </select>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper>
+    <resultMap id="baseResultMap" type="Order">
+        <result column="id" property="id" jdbcType="INTEGER"/>
+        <result column="applicant_id" property="applicantID" jdbcType="INTEGER"/>
+        <result column="subject" property="subject" jdbcType="VARCHAR"/>
+        <result column="description" property="description" jdbcType="VARCHAR"/>
+        <result column="initiate_time" property="initiateTime" jdbcType="TIMESTAMP"/>
+        <result column="approval_status" property="approvalStatus" jdbcType="INTEGER"/>
+    </resultMap>
+
+
+</mapper>
