@@ -22,6 +22,10 @@ spring:
       protocol: smtp
 
 
+spring.servlet.multipart.max-request-size: 10MB
+spring.servlet.multipart.max-file-size: 10MB
+
+
 
 mybatis:
   config-location: classpath:META-INF/mybatis/mybatis-config.xml
@@ -31,7 +35,3 @@ mybatis:
 #logging:
 #  level:
 #    root: debug
-#spring.mail.properties.smtp.auth: true
-#spring.mail.properties.smtp.starttls.enable: true
-#spring.mail.properties.smtp.starttls.required: true
-#spring.mail.properties.mail.smtp.ssl.enable: true

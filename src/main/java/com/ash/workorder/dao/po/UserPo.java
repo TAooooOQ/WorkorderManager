@@ -7,11 +7,12 @@ import java.util.Date;
  * @Created by Ash on 2019/6/9 11:30
  */
 public class UserPo {
+
     private Integer id;
-    private String email;
+    private String username;
     private String password;
-    private boolean actived;
-    private Date last_login_time;
+    private Boolean activate;
+    private Date lastLoginTime;
 
     public Integer getId() {
         return id;
@@ -21,12 +22,12 @@ public class UserPo {
         this.id = id;
     }
 
-    public String getEmail() {
-        return email;
+    public String getUsername() {
+        return username;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getPassword() {
@@ -37,29 +38,29 @@ public class UserPo {
         this.password = password;
     }
 
-    public boolean isActived() {
-        return actived;
+    public Boolean isActivate() {
+        return activate;
     }
 
-    public void setActived(boolean actived) {
-        this.actived = actived;
+    public void setActivate(Boolean activate) {
+        this.activate = activate;
     }
 
-    public Date getLast_login_time() {
-        return last_login_time;
+    public Date getLastLoginTime() {
+        return lastLoginTime;
     }
 
-    public void setLast_login_time(Date last_login_time) {
-        this.last_login_time = last_login_time;
+    public void setLastLoginTime(Date lastLoginTime) {
+        this.lastLoginTime = lastLoginTime;
     }
     @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder("UserPo{");
         sb.append("id=").append(id);
-        sb.append(", email='").append(email).append('\'');
+        sb.append(", username='").append(username).append('\'');
         sb.append(", password='").append(password).append('\'');
-        sb.append(", actived='").append(actived).append('\'');
-        sb.append(",last_login_time'").append(last_login_time).append('\'');
+        sb.append(", activate='").append(activate).append('\'');
+        sb.append(",lastLoginTime'").append(lastLoginTime).append('\'');
         sb.append('}');
         return sb.toString();
     }

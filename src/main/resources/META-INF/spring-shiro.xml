@@ -4,7 +4,7 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans-3.2.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
 
-    <bean id="shiroRealm" class="com.jayden.hmonitor.shiro.token.AbstractHmonitorRealm">
+    <bean id="shiroRealm" class="com.ash.workorder.shiro.token.AbstractRealm">
         <!--<property name="shiroService" ref="accountService" />-->
     </bean>
     <bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">

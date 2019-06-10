@@ -7,8 +7,8 @@
         <result column="id" property="id" jdbcType="INTEGER" />
         <result column="username" property="username" jdbcType="VARCHAR"/>
         <result column="password" property="password" jdbcType="VARCHAR" />
-        <result column="actived" property="actived" jdbcType="BOOLEAN" />
-        <result column="last_login_time" property="last_login_time" jdbcType="TIMESTAMP" />
+        <result column="activate" property="activate" jdbcType="BOOLEAN" />
+        <result column="last_login_time" property="lastLoginTime" jdbcType="TIMESTAMP" />
     </resultMap>
 
     <sql id="tableName">user_info</sql>
@@ -22,25 +22,52 @@
         <include refid="select" />
     </select>
 
-    <select id="selectByusername" resultMap="baseResultMap">
-        select password,actived,last_login_time from user_info
+    <sql id="insert">
+        INSERT INTO
+        <include refid="tableName" />
+        (username, password)
+        VALUES
+        (#{username}, #{password})
+    </sql>
+
+    <select id="selectByUsername" resultMap="baseResultMap">
+        select id,username,password,activate, last_login_time
+        from <include refid="tableName"/>
         where username = #{username}
     </select>
 
-    <insert id="insert">
-        insert into user_info (username,password)
-        values (#{username},#{password})
+
+    <insert id="insert" parameterType="com.ash.workorder.dao.po.UserPo">
+        <include refid="insert" />
     </insert>
 
-    <update id="update">
-        update user_info set
-        username = #{username},
-        password = #{password},
-        where id= #{id}
+    <delete id="delete">
+        DELETE FROM
+        <include refid="tableName"/>
+        WHERE username=#{username};
+    </delete>
+
+    <update id="updatePassword" parameterType="com.ash.workorder.dao.po.UserPo">
+        update <include refid="tableName"/>
+        set password=#{password}
+        where username=#{username}
     </update>
 
-    <delete id="delete">
-        DELETE FROM user_info
-        WHERE id=#{id};
-    </delete>
+    <update id="activate" >
+        update <include refid="tableName"/>
+        set activate = true
+        where username = #{username}
+    </update>
+
+    <select id="searchUsername" resultMap="baseResultMap">
+        select * from
+        <include refid="tableName"/>
+        where username = #{username}
+    </select>
+
+    <update id="updateLoginTime">
+        update <include refid="tableName"/>
+        set last_login_time = #{currentTime}
+        where username = #{username}
+    </update>
 </mapper>
